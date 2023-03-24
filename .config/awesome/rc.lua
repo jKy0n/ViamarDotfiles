@@ -258,7 +258,40 @@ awful.screen.connect_for_each_screen(function(s)
     set_wallpaper(s)
 
     -- Each screen has its own tag table.
-    awful.tag({ " System ", " Midia ", " Social " , " Work ", " Monitor " }, s, awful.layout.layouts[1])
+---    awful.tag({ " System ", " Midia ", " Social " , " Work ", " Monitor " }, s, awful.layout.layouts[1])
+
+--- Funcionou! Tá bom? não, mas funcionou ---
+    awful.tag.add(" System ", {
+        icon = "/home/jkyon/.dotfiles/.config/awesome/icons/system.png",
+        layout = awful.layout.suit.max,
+        screen = s,
+    })
+    
+    awful.tag.add(" Midia ", {
+        icon = "/home/jkyon/.dotfiles/.config/awesome/icons/web-browser.png",
+        layout = awful.layout.suit.max,
+        screen = s,
+    })
+
+    awful.tag.add(" Social ", {
+        icon = "/home/jkyon/.dotfiles/.config/awesome/icons/conversation.png",
+        layout = awful.layout.suit.max,
+        screen = s,
+    })
+    
+    awful.tag.add(" Work ", {
+        icon = "/home/jkyon/.dotfiles/.config/awesome/icons/suitcase.png",
+        layout = awful.layout.suit.max,
+        screen = s,
+    })
+
+    awful.tag.add(" Monitor ", {
+        icon = "/home/jkyon/.dotfiles/.config/awesome/icons/bar-graph.png",
+        layout = awful.layout.suit.max,
+        screen = s,
+    })
+
+
 
     -- Create a promptbox for each screen
     s.mypromptbox = awful.widget.prompt()
@@ -766,6 +799,9 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 beautiful.useless_gap = 1
 beautiful.opacity_active = 0.5                    -- not working
 beautiful.notification_position = bottom_right    -- not working
+
+beautiful.tasklist_shape_focus = gears.shape.rounded_rect
+beautiful.taglist_shape_focus = gears.shape.rounded_rect
 
 
 gears.wallpaper.centered("/home/jkyon/Pictures/WallPapers/abstract_1.jpg", s)
