@@ -263,31 +263,31 @@ awful.screen.connect_for_each_screen(function(s)
 --- Funcionou! Tá bom? não, mas funcionou ---
     awful.tag.add(" System ", {
         icon = "/home/jkyon/.dotfiles/.config/awesome/icons/system.png",
-        layout = awful.layout.suit.max,
+        layout = awful.layout.suit.tile,
         screen = s,
     })
     
     awful.tag.add(" Midia ", {
         icon = "/home/jkyon/.dotfiles/.config/awesome/icons/web-browser.png",
-        layout = awful.layout.suit.max,
+        layout = awful.layout.suit.tile,
         screen = s,
     })
 
     awful.tag.add(" Social ", {
         icon = "/home/jkyon/.dotfiles/.config/awesome/icons/conversation.png",
-        layout = awful.layout.suit.max,
+        layout = awful.layout.suit.tile,
         screen = s,
     })
     
     awful.tag.add(" Work ", {
         icon = "/home/jkyon/.dotfiles/.config/awesome/icons/suitcase.png",
-        layout = awful.layout.suit.max,
+        layout = awful.layout.suit.tile.left,
         screen = s,
     })
 
     awful.tag.add(" Monitor ", {
         icon = "/home/jkyon/.dotfiles/.config/awesome/icons/bar-graph.png",
-        layout = awful.layout.suit.max,
+        layout = awful.layout.suit.tile,
         screen = s,
     })
 
