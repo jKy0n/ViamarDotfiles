@@ -7,4 +7,5 @@ run() {
   fi
 }
 
-picom --daemon
+picom --daemon &
+yakuake &

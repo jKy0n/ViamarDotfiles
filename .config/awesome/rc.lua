@@ -76,7 +76,7 @@ end
 
 -- {{{ Variable definitions
 -- Themes define colours, icons, font and wallpapers.
-beautiful.init(gears.filesystem.get_themes_dir() .. "jKyon/theme.lua")
+beautiful.init("/home/jkyon/.dotfiles/.config/awesome/themes/jKyon/theme.lua")
 
 
 
@@ -253,44 +253,52 @@ end
 -- Re-set wallpaper when a screen's geometry changes (e.g. different resolution)
 screen.connect_signal("property::geometry", set_wallpaper)
 
-awful.screen.connect_for_each_screen(function(s)
-    -- Wallpaper
-    set_wallpaper(s)
-
-    -- Each screen has its own tag table.
----    awful.tag({ " System ", " Midia ", " Social " , " Work ", " Monitor " }, s, awful.layout.layouts[1])
 
 --- Funcionou! Tá bom? não, mas funcionou ---
     awful.tag.add(" System ", {
-        icon = "/home/jkyon/.dotfiles/.config/awesome/icons/system.png",
+    --    icon = "/home/jkyon/.dotfiles/.config/awesome/icons/system-run.svg",
         layout = awful.layout.suit.tile,
+        selected           = true,
         screen = s,
     })
     
     awful.tag.add(" Midia ", {
-        icon = "/home/jkyon/.dotfiles/.config/awesome/icons/web-browser.png",
+--        icon = "/home/jkyon/.dotfiles/.config/awesome/icons/web-browser.png",
         layout = awful.layout.suit.tile,
         screen = s,
     })
 
     awful.tag.add(" Social ", {
-        icon = "/home/jkyon/.dotfiles/.config/awesome/icons/conversation.png",
+--        icon = "/home/jkyon/.dotfiles/.config/awesome/icons/whatsie-tray.svg",
         layout = awful.layout.suit.tile,
         screen = s,
     })
     
     awful.tag.add(" Work ", {
-        icon = "/home/jkyon/.dotfiles/.config/awesome/icons/suitcase.png",
+--    --    icon = "/home/jkyon/.dotfiles/.config/awesome/icons/suitcase.png",
         layout = awful.layout.suit.tile.left,
         screen = s,
     })
 
     awful.tag.add(" Monitor ", {
-        icon = "/home/jkyon/.dotfiles/.config/awesome/icons/bar-graph.png",
+--        icon = "/home/jkyon/.dotfiles/.config/awesome/icons/bar-graph.png",
         layout = awful.layout.suit.tile,
         screen = s,
     })
 
+    awful.tag.add(" Free =) ", {
+--        icon = "/home/jkyon/.dotfiles/.config/awesome/icons/bar-graph.png",
+        layout = awful.layout.suit.tile,
+        screen = s,
+    })
+
+
+awful.screen.connect_for_each_screen(function(s)
+    -- Wallpaper
+    set_wallpaper(s)
+
+    -- Each screen has its own tag table.
+---    awful.tag({ " System ", " Midia ", " Social " , " Work ", " Monitor " }, s, awful.layout.layouts[1])    
 
 
     -- Create a promptbox for each screen
@@ -332,9 +340,12 @@ awful.screen.connect_for_each_screen(function(s)
             layout = wibox.layout.fixed.horizontal,
             tbox_separator_space,
             s.mylayoutbox,
+            tbox_separator_space,
+            tbox_separator_space,
 --            mylauncher,
             s.mytaglist,
             s.mypromptbox,
+            tbox_separator_space,
         },
         s.mytasklist, -- Middle widget
         { -- Right widgets
@@ -356,9 +367,9 @@ awful.screen.connect_for_each_screen(function(s)
             mem.widget,
             tbox_separator,
             volume_widget(),
-            tbox_separator,
+            tbox_separator_space,
             wibox.widget.systray(),
-
+  
             mytextclock,
 
             logout_menu_widget{
@@ -641,13 +652,70 @@ awful.rules.rules = {
       c:connect_signal("unmanage", function() free_focus = true end)
   end },
 
-  { rule = { class = "knotes" },
+  { rule = { instance = "knotes" },
     properties = { floating = true, ontop = false, focus = true },
     callback = function(c)
         c:geometry({x=25, y=25})
         free_focus = false
         c:connect_signal("unmanage", function() free_focus = true end)
     end },
+  
+  { rule = { class = "xpad" },
+    properties = { floating = true, ontop = false, focus = true,
+                    tag = screen[1].tags[1] },
+    callback = function(c)
+        c:geometry({x=25, y=25})
+        free_focus = false
+        c:connect_signal("unmanage", function() free_focus = true end)
+    end },
+
+  { rule = { name = "*- Visual Studio Code" },
+    properties = { floating = false, ontop = false, focus = true,
+                    tag = screen[1].tags[1],    },
+    callback = function(c)
+        free_focus = false
+        c:connect_signal("unmanage", function() free_focus = true end)
+    end },
+  
+    { rule = { name = "Thunderbird" },
+    properties = { floating = false, ontop = false, focus = true,
+                    tag = screen[1].tags[3],    },
+    callback = function(c)
+        free_focus = false
+        c:connect_signal("unmanage", function() free_focus = true end)
+    end },
+
+    { rule = { name = "Spotify" },
+    properties = { floating = false, ontop = false, focus = true,
+                    tag = screen[1].tags[4],    },
+    callback = function(c)
+        free_focus = false
+        c:connect_signal("unmanage", function() free_focus = true end)
+    end },
+
+    { rule = { name = "Joplin" },
+    properties = { floating = false, ontop = false, focus = true,
+                    tag = screen[1].tags[4],    },
+    callback = function(c)
+        free_focus = false
+        c:connect_signal("unmanage", function() free_focus = true end)
+    end },
+
+    { rule = { name = "Discord" },
+    properties = { floating = false, ontop = false, focus = true,
+                    tag = screen[1].tags[3],    },
+    callback = function(c)
+        free_focus = false
+        c:connect_signal("unmanage", function() free_focus = true end)
+    end },
+
+    { rule = { instance = "Thunar" },
+    properties = { floating = true, ontop = false, 
+    focus = true, placement = awful.placement.centered }},
+
+    { rule = { instance = "lxappearance" },
+    properties = { floating = true, ontop = false, 
+    focus = true, placement = awful.placement.centered }},
 
 
 
@@ -797,12 +865,15 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 
 --- Add gaps
 beautiful.useless_gap = 1
-beautiful.opacity_active = 0.5                    -- not working
 beautiful.notification_position = bottom_right    -- not working
 
+beautiful.tasklist_shape_minimized = gears.shape.rounded_rect
+beautiful.tasklist_shape_bg = gears.shape.rounded_rect
 beautiful.tasklist_shape_focus = gears.shape.rounded_rect
+beautiful.taglist_shape_bg = gears.shape.rounded_rect
 beautiful.taglist_shape_focus = gears.shape.rounded_rect
 
+beautiful.systray_icon_spacing = 10
 
-gears.wallpaper.centered("/home/jkyon/Pictures/WallPapers/abstract_1.jpg", s)
+gears.wallpaper.centered("/usr/share/wallpapers/FuturePrototypeWithLogo/contents/images/2560x1080.svg", s)
 awful.spawn.with_shell("~/.config/awesome/autorun.sh")
