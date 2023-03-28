@@ -30,6 +30,9 @@ local calendar_widget = require("awesome-wm-widgets.calendar-widget.calendar")
 local volume_widget = require('awesome-wm-widgets.volume-widget.volume')
 local logout_menu_widget = require("awesome-wm-widgets.logout-menu-widget.logout-menu")
 
+local cpu_widget = require("awesome-wm-widgets.cpu-widget.cpu-widget")
+local ram_widget = require("awesome-wm-widgets.ram-widget.ram-widget")
+
 -- Global Menu by Fenetre
 local fenetre = require("fenetre")
 local titlebar = fenetre {
@@ -176,6 +179,7 @@ mytextclock:connect_signal("button::press",
 
 ----------------------------------------------
 
+tbox_separator_dash = wibox.widget.textbox (" - ")
 tbox_separator = wibox.widget.textbox (" | ")
 tbox_separator_space = wibox.widget.textbox (" ")
 tbox_separator_temp = wibox.widget.textbox ("Temp:")
@@ -347,28 +351,38 @@ awful.screen.connect_for_each_screen(function(s)
             s.mypromptbox,
             tbox_separator_space,
         },
+
+
         s.mytasklist, -- Middle widget
+       
+       
         { -- Right widgets
             layout = wibox.layout.fixed.horizontal,
 --            mykeyboardlayout,
+            
             tbox_separator_space,
-            tbox_separator_temp,
-            awful.widget.watch('bash -c "cat /sys/class/hwmon/hwmon1/device/hwmon/hwmon1/temp1_input"', 1,
-                    function(widget, s) widget:set_text(tonumber(s)/1000) end),
-                    tbox_separator_Celsius,
-            -- awful.widget.watch('bash -c "cat /sys/class/hwmon/hwmon1/device/hwmon/hwmon1/temp1_input"', 1,
-            --         function(widget, s) widget:set_text(tonumber(s)/1000) end),
-            -- tbox_separator_space,
-            tbox_separator,
+            tbox_separator_space,
             cpu.widget,
+            tbox_separator_dash,
+            awful.widget.watch('bash -c "cat /sys/class/hwmon/hwmon1/device/hwmon/hwmon1/temp1_input"', 1,
+            function(widget, s) widget:set_text(tonumber(s)//1000) end),
+            tbox_separator_Celsius,
+            tbox_separator,
+            tbox_separator_space,
+            cpu_widget(),
+            tbox_separator_space,
             -- tbox_separator,
             -- tempwidget,
             tbox_separator,
             mem.widget,
+            tbox_separator_space,
+            ram_widget({ color_used = '#2E3D55', color_buf = '#4B5B73' }),
             tbox_separator,
-            volume_widget(),
+            volume_widget({ widget_type = 'arc' , thickness = 2 }),
+            tbox_separator_space,
             tbox_separator_space,
             wibox.widget.systray(),
+            tbox_separator_space,
   
             mytextclock,
 
@@ -717,6 +731,10 @@ awful.rules.rules = {
     properties = { floating = true, ontop = false, 
     focus = true, placement = awful.placement.centered }},
 
+    { rule = { instance = "gnome-calculator" },
+    properties = { floating = true, ontop = false, 
+    focus = true, placement = awful.placement.centered }},
+
 
 
 
@@ -864,12 +882,16 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 
 
 --- Add gaps
-beautiful.useless_gap = 1
+beautiful.useless_gap = 2
 beautiful.notification_position = bottom_right    -- not working
 
+beautiful.systray_icon_spacing = 8
+
+beautiful.tasklist_shape_urgent = gears.shape.rounded_rect
 beautiful.tasklist_shape_minimized = gears.shape.rounded_rect
 beautiful.tasklist_shape_bg = gears.shape.rounded_rect
 beautiful.tasklist_shape_focus = gears.shape.rounded_rect
+beautiful.taglist_shape_urgent = gears.shape.rounded_rect
 beautiful.taglist_shape_bg = gears.shape.rounded_rect
 beautiful.taglist_shape_focus = gears.shape.rounded_rect
 
