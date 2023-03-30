@@ -36,3 +36,8 @@ bindkey "^[[1;5D" backward-word
 # Alias
 alias ls="ls --color"
 alias nano="nano --linenumbers"
+alias mv='mv -v'
+alias cp='cp  -v'
+alias cat='cat -n'
+alias ondemand="sudo cpupower frequency-set -g ondemand"
+alias performance="sudo cpupower frequency-set -g performance"

@@ -735,6 +735,14 @@ awful.rules.rules = {
     properties = { floating = true, ontop = false, 
     focus = true, placement = awful.placement.centered }},
 
+    { rule = { instance = "openrgb" },
+    properties = { floating = true, ontop = false, 
+    focus = true, placement = awful.placement.centered }},
+    
+    { rule = { instance = "virt-manager" },
+    properties = { floating = true, ontop = false, 
+    focus = true, placement = awful.placement.centered }},
+
 
 
 
@@ -894,6 +902,8 @@ beautiful.tasklist_shape_focus = gears.shape.rounded_rect
 beautiful.taglist_shape_urgent = gears.shape.rounded_rect
 beautiful.taglist_shape_bg = gears.shape.rounded_rect
 beautiful.taglist_shape_focus = gears.shape.rounded_rect
+
+beautiful.notification_shape = gears.shape.rounded_rect
 
 beautiful.systray_icon_spacing = 10
 
