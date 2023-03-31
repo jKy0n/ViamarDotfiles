@@ -1,0 +1,2 @@
+picom --daemon &
+yakuake &

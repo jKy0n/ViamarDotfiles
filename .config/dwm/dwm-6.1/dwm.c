@@ -194,6 +194,7 @@ static void resizeclient(Client *c, int x, int y, int w, int h);
 static void resizemouse(const Arg *arg);
 static void restack(Monitor *m);
 static void run(void);
+static void runAutostart(void);
 static void scan(void);
 static int sendevent(Client *c, Atom proto);
 static void sendmon(Client *c, Monitor *m);
@@ -235,7 +236,15 @@ static int xerrorstart(Display *dpy, XErrorEvent *ee);
 static void zoom(const Arg *arg);
 
 /* variables */
+
+static const char autostartblocksh[] = "autostart_blocking.sh";
+static const char autostartsh[] = "autostart.sh";
+
 static const char broken[] = "broken";
+
+static const char dwmdir[] = "dwm";
+static const char localshare[] = ".local/share";
+
 static char stext[256];
 static int screen;
 static int sw, sh;           /* X display screen geometry width, height */
@@ -272,6 +281,16 @@ static Window root;
 
 /* compile-time check if all tags fit into an unsigned int bit array. */
 struct NumTags { char limitexceeded[LENGTH(tags) > 31 ? -1 : 1]; };
+
+
+/* jKyon Add funcions*/
+
+
+
+
+
+
+
 
 /* function implementations */
 void
@@ -1397,6 +1416,17 @@ run(void)
 			handler[ev.type](&ev); /* call handler */
 }
 
+
+void
+runAutostart(void) {
+	system("cd ~/.dwm; ./autostart_blocking.sh");
+	system("cd ~/.dwm; ./autostart.sh &");
+}
+
+void
+ scan(void)
+
+
 void
 scan(void)
 {
@@ -2134,6 +2164,7 @@ main(int argc, char *argv[])
 	checkotherwm();
 	setup();
 	scan();
+	runAutostart();
 	run();
 	cleanup();
 	XCloseDisplay(dpy);
