@@ -4,19 +4,20 @@
 My little buddy
 
 
-![Neofetch](https://github.com/jKy0n/ViamarDotfiles/blob/main/midia/neofetch-27-Mar-2023.png)
+![Neofetch](https://github.com/jKy0n/ViamarDotfiles/blob/main/midia/neofetch-06-Apr-2023.png)
 
 ## Operational System:
 
-- OS: Debian GNU/Linux 11 bullseye
-- Kernel: 5.10.0-21-amd64
+- OS: Gentoo Linux
+- Kernel: 6.1.19 (GenKernel)
 - Shell: bash / zsh
 - GS: XOrg X11
-- WM: Awesome
+- WM: dwm
+- Theme: Skeuos-Blue-Dark
 - Icons: ePapirus-Dark
-- Terminal: Alacritty / Yakuake
+- Terminal: Alacritty / (need drop-down a menu)
 - FS: BtrFS
-- Init: systemd
+- Init: OpenRC
 
 
 ![Theseus Machine](https://github.com/jKy0n/ViamarDotfiles/blob/main/midia/Viamar-27-Mar-2023.jpg)
