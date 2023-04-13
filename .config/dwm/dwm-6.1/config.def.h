@@ -1,1 +1,0 @@
-/home/jkyon/.dotfiles/.config/dwm/dwm-6.1/config.h
