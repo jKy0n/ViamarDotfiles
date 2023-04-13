@@ -15,7 +15,7 @@ My little buddy
 - WM: dwm
 - Theme: Skeuos-Blue-Dark
 - Icons: ePapirus-Dark
-- Terminal: Alacritty / (need drop-down a menu)
+- Terminal: Alacritty
 - FS: BtrFS
 - Init: OpenRC
 
