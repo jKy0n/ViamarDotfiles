@@ -2,11 +2,11 @@
 static const Block blocks[] = {
 	/*Icon*/	/*Command*/		/*Update Interval*/	/*Update Signal*/
 
-	{"CPU:", "/home/jkyon/ShellScript/cpuPercentage",			1,	        0},
+	{"CPU: ", "/home/jkyon/ShellScript/cpuPercentage",			1,	        0},
 
-	{"Mem:", "free -h | awk '/^Mem/ { print $3 }' | sed s/i//g",		30,		0},
+	{"Mem: ", "free -h | awk '/^Mem/ { print $3 }' | sed s/i//g",		30,		0},
 
-	{"Vol:", "pactl get-sink-volume @DEFAULT_SINK@ | awk '{print $5}'",	5,		0},
+	{"Vol: ", "pactl get-sink-volume @DEFAULT_SINK@ | awk '{print $5}'",	5,		0},
 
 	{"", "date '+%a, %d %b - %H:%M '",					5,		0},
 };
