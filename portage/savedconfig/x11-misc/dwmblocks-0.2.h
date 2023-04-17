@@ -1,0 +1,1 @@
+dwmblocks-0.2
