@@ -4,7 +4,7 @@
 My little buddy
 
 
-![Neofetch](https://github.com/jKy0n/ViamarDotfiles/blob/main/midia/neofetch-13-apr-2023.png)
+![Neofetch](https://github.com/jKy0n/ViamarDotfiles/blob/main/midia/neofetch-18-apr-2023.png)
 
 ## Operational System:
 
@@ -13,7 +13,7 @@ My little buddy
 - Shell: bash / zsh
 - GS: XOrg X11
 - WM: dwm
-- Theme: Skeuos-Blue-Dark
+- Theme: Skeuos-Blue-Dark (gtk)
 - Icons: ePapirus-Dark
 - Terminal: Alacritty
 - FS: BtrFS
