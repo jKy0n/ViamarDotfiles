@@ -2,11 +2,13 @@
 static const Block blocks[] = {
 	/*Icon*/	/*Command*/		/*Update Interval*/	/*Update Signal*/
 
+	{"  ",  "/home/jkyon/ShellScript/dwmBlocksUpdates",		21600,		0},
+
 	{"CPU: ",  "/home/jkyon/ShellScript/dwmBlocksCpuUsage",			1,		0},
 	{"Temp: ", "/home/jkyon/ShellScript/dwmBlocksCpuTemp",			1,		0},
 	{"Mem: ",  "/home/jkyon/ShellScript/dwmBlocksMemUsage",			5,		0},
 	{"Vol: ",  "/home/jkyon/ShellScript/dwmBlocksVolumeAudio",		5,		0},
-	{"", "date '+%a, %d %b - %H:%M '",					5,		0},
+	{"", "date '+%a, %d %b - %H:%M '",								5,		0},
 };
 
 //sets delimeter between status commands. NULL character ('\0') means no delimeter.
