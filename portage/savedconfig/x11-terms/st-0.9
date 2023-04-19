@@ -5,7 +5,8 @@
  *
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
-static char *font = "MesloLGS NF:pixelsize=12:antialias=true:autohint=true";
+//static char *font = "Meslo:pixelsize=14:antialias=true:autohint=true";
+static char *font = "MesloLGS NF:pixelsize=12";
 static int borderpx = 2;
 
 /*
@@ -98,33 +99,59 @@ float alpha = 0.8;
 
 /* Terminal colors (16 first used in escape sequence) */
 static const char *colorname[] = {
-	/* 8 normal colors */
-	"black",
-	"red3",
-	"green3",
-	"yellow3",
-	"blue2",
-	"magenta3",
-	"cyan3",
-	"gray90",
+	// /* 8 normal colors */
+	// "black",
+	// "red3",
+	// "green3",
+	// "yellow3",
+	// "blue2",
+	// "magenta3",
+	// "cyan3",
+	// "gray90",
 
-	/* 8 bright colors */
-	"gray50",
-	"red",
-	"green",
-	"yellow",
-	"#5c5cff",
-	"magenta",
-	"cyan",
-	"white",
+	// /* 8 bright colors */
+	// "gray50",
+	// "red",
+	// "green",
+	// "yellow",
+	// "#5c5cff",
+	// "magenta",
+	// "cyan",
+	// "white",
+
+	// [255] = 0,
+
+	//normal colors
+	"#0d0d0d",
+	"#FF301B",
+	"#A0E521",
+	"#FFC620",
+	"#1BA6FA",
+	"#8763B8",
+	"#21DEEF",
+	"#EBEBEB",
+
+	// Bright colors
+	"#6D7070",
+	"#FF4352",
+	"#B8E466",
+	"#FFD750",
+	"#1BA6FA",
+	"#A578EA",
+	"#73FBF1",
+	"#FEFEF8",
 
 	[255] = 0,
+
+	// //Special colors
+	// [256] = "#212D45", /* background */
+	// [257] = "#EBEBEB", /* foreground */
 
 	/* more colors can be added after 255 to use with DefaultXX */
 	"#cccccc",
 	"#555555",
-	"gray90", /* default foreground colour */
-	"black", /* default background colour */
+	"#EBEBEB", /* "gray90",   default foreground colour */
+	"#212D45", /* "black",   default background colour */
 };
 
 
