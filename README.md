@@ -4,7 +4,7 @@
 My little buddy
 
 
-![Neofetch](https://github.com/jKy0n/ViamarDotfiles/blob/main/midia/neofetch-18-apr-2023.png)
+![Neofetch](https://github.com/jKy0n/ViamarDotfiles/blob/main/midia/neofetch-20-apr-2023.png)
 
 ## Operational System:
 
