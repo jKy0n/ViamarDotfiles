@@ -33,7 +33,7 @@ static const char *colors[][3]      = {
 };
 
 /* tagging */
-static const char *tags[] = { "system", "code", "midia", "work", "chat", "mail", "monitor" };
+static const char *tags[] = { "system", "web", "chat", "work", "monitor", " 6 ", " 7 ", " 8 ", " 9 " };
 
 static const Rule rules[] = {
 	/* xprop(1):
@@ -44,17 +44,21 @@ static const Rule rules[] = {
 	{ "Firefox",  NULL,       NULL,       1 << 8,       0,           -1 },
 	{ "Google-chrome",  NULL, NULL,		  1 << 8,		0,           -1 },
 	
+	{ "Code",	  NULL,		  NULL,		  1,			0,           -1 },
+	
 	{ "Guake",	  NULL,		  NULL,		  0,			1,           -1 },
 
 	{ "Thunar",   NULL,       NULL,       1 << 8,       1,           -1 },
 	{ "Spotify",  NULL,       NULL,       4,			0,           -1 },
-	{ "Joplin",   NULL,       NULL,       3,			0,           -1 },
+	{ "Joplin",   NULL,       NULL,       4,			0,           -1 },
 	{ NULL,  	  NULL, 	  "MuPDF",	  1 << 8,		1,           -1 },
+	{ "feh",  	  NULL, 	  NULL,	 	  1 << 8,		1,           -1 },
+	{ "Thunderbird",  NULL,   NULL,	  	  3,			0,           -1 },
 
-	{ "discord",  NULL, 	  NULL,		  5,			0,           -1 },
-	{ "rambox",   NULL, 	  NULL,		  5,			0,           -1 },
+	{ "discord",  NULL, 	  NULL,		  3,			0,           -1 },
+	{ "rambox",   NULL, 	  NULL,		  3,			0,           -1 },
 	
-	{ "PrismLauncher",  NULL, NULL,		  3,			1,           -1 },
+	{ "PrismLauncher",  NULL, NULL,		  6,			1,           -1 },
 	
 	{ "Lxappearance",  NULL,  NULL,		  1 << 8,		1,           -1 },
 	{ "openrgb",	NULL, 	  NULL,		  1 << 8,		1,           -1 },
@@ -89,7 +93,7 @@ static const Layout layouts[] = {
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
-static const char *termcmd[]  = { "st", NULL };
+static const char *termcmd[]  = { "alacritty", NULL };
 
 
 static const char *upvol[] =   { "pactl", "set-sink-volume", "@DEFAULT_SINK@", "+5%", 	 NULL };
