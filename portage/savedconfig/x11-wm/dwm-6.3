@@ -33,7 +33,7 @@ static const char *colors[][3]      = {
 };
 
 /* tagging */
-static const char *tags[] = { "system", "web", "chat", "work", "monitor", " 6 ", " 7 ", " 8 ", " 9 " };
+static const char *tags[] = { " 1 ", " 2 ", " 3 ", " 4 ", " 5 ", " 6 ", " 7 ", " 8 ", " 9 " };
 
 static const Rule rules[] = {
 	/* xprop(1):
@@ -60,6 +60,7 @@ static const Rule rules[] = {
 	
 	{ "PrismLauncher",  NULL, NULL,		  6,			1,           -1 },
 	
+	{ "gnome-calculator",  NULL,  NULL,	  1 << 8,		1,           -1 },
 	{ "Lxappearance",  NULL,  NULL,		  1 << 8,		1,           -1 },
 	{ "openrgb",	NULL, 	  NULL,		  1 << 8,		1,           -1 },
 };
