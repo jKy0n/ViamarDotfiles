@@ -101,6 +101,10 @@ static const char *upvol[] =   { "pactl", "set-sink-volume", "@DEFAULT_SINK@", "
 static const char *downvol[] = { "pactl", "set-sink-volume", "@DEFAULT_SINK@", "-5%", 	 NULL };
 static const char *mute[] =    { "pactl", "set-sink-mute", 	 "@DEFAULT_SINK@", "toggle", NULL };
 
+static const char *playPause[]	=	{ "dbus-send", "--print-reply", "--dest=org.mpris.MediaPlayer2.spotify", "/org/mpris/MediaPlayer2", "org.mpris.MediaPlayer2.Player.PlayPause", NULL };
+static const char *Previous[] 	=	{ "dbus-send", "--print-reply", "--dest=org.mpris.MediaPlayer2.spotify", "/org/mpris/MediaPlayer2", "org.mpris.MediaPlayer2.Player.Previous", NULL };
+static const char *Next[] 		=	{ "dbus-send", "--print-reply", "--dest=org.mpris.MediaPlayer2.spotify", "/org/mpris/MediaPlayer2", "org.mpris.MediaPlayer2.Player.Next", NULL };
+
 static const char *cmdprintscreen[]  = { "gnome-screenchot", "-i", NULL };
 
 
@@ -148,6 +152,10 @@ static Key keys[] = {
     { 0,              XF86XK_AudioRaiseVolume, spawn,          {.v = upvol } },
     { 0,              XF86XK_AudioLowerVolume, spawn,          {.v = downvol } },
     { 0,              XF86XK_AudioMute,        spawn,          {.v = mute } },
+    
+	{ 0,              XF86XK_AudioPlay,        spawn,          {.v = playPause } },
+	{ 0,              XF86XK_AudioPrev,        spawn,          {.v = Previous } },
+	{ 0,              XF86XK_AudioNext,        spawn,          {.v = Next } },
 
 	{ 0,			  XK_Print, 	spawn, 		SHCMD("gnome-screenshot -i") },
 };
