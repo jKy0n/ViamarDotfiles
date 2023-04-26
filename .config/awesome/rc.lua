@@ -21,7 +21,7 @@ require("awful.hotkeys_popup.keys")
 --local helpers = require "helpers"
 
 -- Load Debian menu entries
-local debian = require("debian.menu")
+--local debian = require("debian.menu")
 local has_fdo, freedesktop = pcall(require, "freedesktop")
 
 local vicious = require("vicious")
@@ -142,7 +142,7 @@ else
     mymainmenu = awful.menu({
         items = {
                   menu_awesome,
-                  { "Debian", debian.menu.Debian_menu.Debian },
+--                  { "Debian", debian.menu.Debian_menu.Debian },
                   menu_terminal,
                 }
     })
@@ -364,8 +364,7 @@ awful.screen.connect_for_each_screen(function(s)
             tbox_separator_space,
             cpu.widget,
             tbox_separator_dash,
-            awful.widget.watch('bash -c "cat /sys/class/hwmon/hwmon1/device/hwmon/hwmon1/temp1_input"', 1,
-            function(widget, s) widget:set_text(tonumber(s)//1000) end),
+--            awful.widget.watch('bash -c "cat /sys/class/hwmon/hwmon1/device/hwmon/hwmon1/temp1_input"', 1, function(widget, s) widget:set_text(tonumber(s)//1000) end),
             tbox_separator_Celsius,
             tbox_separator,
             tbox_separator_space,
@@ -907,5 +906,5 @@ beautiful.notification_shape = gears.shape.rounded_rect
 
 beautiful.systray_icon_spacing = 10
 
-gears.wallpaper.centered("/usr/share/wallpapers/FuturePrototypeWithLogo/contents/images/2560x1080.svg", s)
+gears.wallpaper.fit("/home/jkyon/Pictures/WallPapers/Andromeda-2560x1080.jpg", s)
 awful.spawn.with_shell("~/.config/awesome/autorun.sh")
