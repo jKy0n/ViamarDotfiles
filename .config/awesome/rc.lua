@@ -362,7 +362,7 @@ awful.screen.connect_for_each_screen(function(s)
             
             tbox_separator_space,
             tbox_separator_space,
-            wibox.widget.textbox('  '),
+            wibox.widget.textbox('  '),
             awful.widget.watch('bash -c "sh /home/jkyon/ShellScript/dwmBlocksUpdates"', 7200),
             tbox_separator,
             wibox.widget.textbox('  '),
