@@ -362,10 +362,13 @@ awful.screen.connect_for_each_screen(function(s)
             
             tbox_separator_space,
             tbox_separator_space,
+            wibox.widget.textbox('  '),
+            awful.widget.watch('bash -c "sh /home/jkyon/ShellScript/dwmBlocksUpdates"', 7200),
+            tbox_separator,
+            wibox.widget.textbox('  '),
             cpu.widget,
-            tbox_separator_dash,
---            awful.widget.watch('bash -c "cat /sys/class/hwmon/hwmon1/device/hwmon/hwmon1/temp1_input"', 1, function(widget, s) widget:set_text(tonumber(s)//1000) end),
-            tbox_separator_Celsius,
+            wibox.widget.textbox('  '),
+            awful.widget.watch('bash -c "sh /home/jkyon/ShellScript/dwmBlocksCpuTemp"', 2),            
             tbox_separator,
             tbox_separator_space,
             cpu_widget(),
@@ -373,6 +376,7 @@ awful.screen.connect_for_each_screen(function(s)
             -- tbox_separator,
             -- tempwidget,
             tbox_separator,
+            wibox.widget.textbox('  '),
             mem.widget,
             tbox_separator_space,
             ram_widget({ color_used = '#2E3D55', color_buf = '#4B5B73' }),
@@ -467,7 +471,7 @@ awful.key({}, "XF86AudioStop", function () awful.util.spawn("dbus-send --print-r
 
     -- Standard program
 
-     awful.key({ }, "Print", function () awful.util.spawn("flameshot launcher") end),
+     awful.key({ }, "Print", function () awful.util.spawn("gnome-screenshot -i") end),
 
     awful.key({ modkey,           }, "Return", function () awful.spawn(terminal) end,
               {description = "open a terminal", group = "launcher"}),
@@ -657,21 +661,13 @@ awful.rules.rules = {
      }
     },
 
-{ rule = { class = "yakuake" },
-  properties = { floating = true, ontop = true, focus = true },
-  callback = function(c)
-      c:geometry({x=100, y=25})
-      free_focus = false
-      c:connect_signal("unmanage", function() free_focus = true end)
-  end },
-
-  { rule = { instance = "knotes" },
-    properties = { floating = true, ontop = false, focus = true },
-    callback = function(c)
-        c:geometry({x=25, y=25})
-        free_focus = false
-        c:connect_signal("unmanage", function() free_focus = true end)
-    end },
+-- { rule = { class = "yakuake" },
+--   properties = { floating = true, ontop = true, focus = true },
+--   callback = function(c)
+--       c:geometry({x=100, y=25})
+--       free_focus = false
+--       c:connect_signal("unmanage", function() free_focus = true end)
+--   end },
   
   { rule = { class = "xpad" },
     properties = { floating = true, ontop = false, focus = true,
@@ -682,7 +678,7 @@ awful.rules.rules = {
         c:connect_signal("unmanage", function() free_focus = true end)
     end },
 
-  { rule = { name = "*- Visual Studio Code" },
+  { rule = { name = "Code" },
     properties = { floating = false, ontop = false, focus = true,
                     tag = screen[1].tags[1],    },
     callback = function(c)
@@ -731,6 +727,10 @@ awful.rules.rules = {
     focus = true, placement = awful.placement.centered }},
 
     { rule = { instance = "gnome-calculator" },
+    properties = { floating = true, ontop = false, 
+    focus = true, placement = awful.placement.centered }},
+
+    { rule = { class = "Gnome-screenshot" },
     properties = { floating = true, ontop = false, 
     focus = true, placement = awful.placement.centered }},
 
