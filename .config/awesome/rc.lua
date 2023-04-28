@@ -471,7 +471,11 @@ awful.key({}, "XF86AudioStop", function () awful.util.spawn("dbus-send --print-r
 
     -- Standard program
 
-     awful.key({ }, "Print", function () awful.util.spawn("gnome-screenshot -i") end),
+    awful.key({ }, "Print", function () awful.util.spawn("gnome-screenshot -i") end),
+     
+    awful.key({ modkey, "Control" }, "Escape", function () awful.util.spawn("loginctl suspend") end),
+
+
 
     awful.key({ modkey,           }, "Return", function () awful.spawn(terminal) end,
               {description = "open a terminal", group = "launcher"}),
@@ -906,5 +910,5 @@ beautiful.notification_shape = gears.shape.rounded_rect
 
 beautiful.systray_icon_spacing = 10
 
-gears.wallpaper.fit("/home/jkyon/Pictures/WallPapers/Andromeda-2560x1080.jpg", s)
+gears.wallpaper.maximized("/home/jkyon/Pictures/WallPapers/Andromeda.jpg", s)
 awful.spawn.with_shell("~/.config/awesome/autorun.sh")
