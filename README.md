@@ -4,7 +4,7 @@
 My little buddy
 
 
-![Neofetch](https://github.com/jKy0n/ViamarDotfiles/blob/main/midia/neofetch-20-apr-2023.png)
+![Neofetch](https://github.com/jKy0n/ViamarDotfiles/blob/main/media/neofetch-02-may-2023.png)
 
 ## Operational System:
 
@@ -20,7 +20,7 @@ My little buddy
 - Init: OpenRC
 
 
-![Theseus Machine](https://github.com/jKy0n/ViamarDotfiles/blob/main/midia/Viamar-27-Mar-2023.jpg)
+![Theseus Machine](https://github.com/jKy0n/ViamarDotfiles/blob/main/media/Viamar-27-Mar-2023.jpg)
 
 
 ## Hardware:
@@ -35,7 +35,7 @@ My little buddy
 - CAB: Cooler Master Masterbox Q300L Black
 
 
-![Peripherals](https://github.com/jKy0n/ViamarDotfiles/blob/main/midia/myDesktop-27-Mar-2023.jpg)
+![Peripherals](https://github.com/jKy0n/ViamarDotfiles/blob/main/media/myDesktop-27-Mar-2023.jpg)
 
 
 ## Monitors:
