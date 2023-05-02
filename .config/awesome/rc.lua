@@ -262,11 +262,11 @@ screen.connect_signal("property::geometry", set_wallpaper)
     awful.tag.add(" System ", {
     --    icon = "/home/jkyon/.dotfiles/.config/awesome/icons/system-run.svg",
         layout = awful.layout.suit.tile,
-        selected           = true,
+        selected = true,
         screen = s,
     })
     
-    awful.tag.add(" Midia ", {
+    awful.tag.add(" Media ", {
 --        icon = "/home/jkyon/.dotfiles/.config/awesome/icons/web-browser.png",
         layout = awful.layout.suit.tile,
         screen = s,
