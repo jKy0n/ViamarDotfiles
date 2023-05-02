@@ -910,5 +910,4 @@ beautiful.notification_shape = gears.shape.rounded_rect
 
 beautiful.systray_icon_spacing = 10
 
-gears.wallpaper.maximized("/home/jkyon/Pictures/WallPapers/Andromeda.jpg", s)
 awful.spawn.with_shell("~/.config/awesome/autorun.sh")

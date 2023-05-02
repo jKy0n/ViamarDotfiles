@@ -8,4 +8,4 @@ run() {
 }
 
 picom --daemon &
-yakuake &
+sleep 1 && /usr/libexec/polkit-gnome-authentication-agent-1 &

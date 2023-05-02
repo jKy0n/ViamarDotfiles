@@ -12,7 +12,7 @@ My little buddy
 - Kernel: 6.1.19 (GenKernel)
 - Shell: bash / zsh
 - GS: XOrg X11
-- WM: dwm
+- WM: awesomeWM
 - Theme: Skeuos-Blue-Dark (gtk)
 - Icons: ePapirus-Dark
 - Terminal: Alacritty
@@ -51,4 +51,4 @@ My little buddy
 
 ## Audio:
 
-- Headphone: generic ear bud
+- Headphone: a generic ear bud
