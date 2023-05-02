@@ -391,7 +391,11 @@ awful.screen.connect_for_each_screen(function(s)
 
             logout_menu_widget{
                  font = 'sans 9',
-                 onlock = function() awful.spawn.with_shell('i3lock-fancy') end
+                 onlogout   =	function() awesome.quit() end,
+                 onlock     =   function() awful.spawn.with_shell('xscreensaver-command  -lock') end,
+                 onsuspend  =   function() awful.spawn.with_shell("loginctl suspend") end,
+                 onreboot   =   function() awful.spawn.with_shell("loginctl reboot") end,
+                 onpoweroff =   function() awful.spawn.with_shell("loginctl poweroff") end,
             },
             tbox_separator_space
 
@@ -721,6 +725,11 @@ awful.rules.rules = {
         free_focus = false
         c:connect_signal("unmanage", function() free_focus = true end)
     end },
+
+    { rule = { class = "rambox" },
+    properties = { floating = false, ontop = false,
+    tag =  screen[1].tags[3],
+    focus = true, placement = awful.placement.centered }},
 
     { rule = { instance = "Thunar" },
     properties = { floating = true, ontop = false, 
