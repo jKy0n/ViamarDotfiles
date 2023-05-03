@@ -671,72 +671,72 @@ awful.rules.rules = {
 
 
     ---------      My rules    ---------
-    
-    { rule = { class = "Code" },
-    properties = { floating = false, ontop = false,
-    tag =  screen[1].tags[1],
-    focus = false, placement = awful.placement.centered }},
-    
-    --  Try to make dialogs open floating at center
-    -- { rule = { name = "Visual Studio Code" },
-    -- properties = { floating = false, ontop = true,
-    -- focus = true, placement = awful.placement.centered }},
-    
-    
-    { rule = { name = "Discord" },
-    properties = { floating = false, ontop = false,
-    tag =  screen[1].tags[3],
-    focus = false, placement = awful.placement.centered }},
-    
-    { rule = { instance = "gnome-calculator" },
-    properties = { floating = true, ontop = false, 
-    focus = true, placement = awful.placement.centered }},
-    
-    { rule = { class = "Gnome-screenshot" },
-    properties = { floating = true, ontop = false, 
-    focus = true, placement = awful.placement.centered }},
-    
-    { rule = { name = "Joplin" },
-    properties = { floating = false, ontop = false,
-    tag =  screen[1].tags[4],
-    focus = false, placement = awful.placement.centered }},
-    
-    { rule = { instance = "lxappearance" },
-    properties = { floating = true, ontop = false, 
-    focus = true, placement = awful.placement.centered }},
-    
-    { rule = { instance = "openrgb" },
-    properties = { floating = true, ontop = false, 
-    focus = true, placement = awful.placement.centered }},
-    
-    { rule = { class = "rambox" },
-    properties = { floating = false, ontop = false,
-    tag =  screen[1].tags[3],
-    focus = true, placement = awful.placement.centered }},
-    
-    { rule = { name = "Spotify" },
-    properties = { floating = false, ontop = false,
-    tag =  screen[1].tags[4],
-    focus = false, placement = awful.placement.centered }},
-    
-    { rule = { instance = "Thunar" },
-    properties = { floating = true, ontop = false, 
-    focus = true, placement = awful.placement.centered }},
-    
-    { rule = { name = "Thunderbird" },
-    properties = { floating = false, ontop = false,
-    tag =  screen[1].tags[3],
-    focus = false, placement = awful.placement.centered }},
-    
-    { rule = { instance = "virt-manager" },
-    properties = { floating = true, ontop = false, 
-    focus = true, placement = awful.placement.centered }},
-    
-    { rule = { class = "xpad" },
-    properties = { floating = false, ontop = false, focus = false,
-    placement = awful.placement.centered,
-    tag =  screen[1].tags[1] },
-    callback = function(c) c:geometry({x=25, y=25}) end },
+
+        { rule = { class = "Code" },
+        properties = { floating = false, ontop = false, focus = false,
+        tag =  screen[1].tags[1],
+        placement = awful.placement.centered }},
+
+        --  Try to make dialogs open floating at center
+        -- { rule = { name = "Visual Studio Code" },
+        -- properties = { floating = false, ontop = true,
+        -- focus = true, placement = awful.placement.centered }},
+
+
+        { rule = { name = "Discord" },
+        properties = { floating = false, ontop = false, focus = false, 
+        tag =  screen[1].tags[3],
+        placement = awful.placement.centered }},
+
+        { rule = { instance = "gnome-calculator" },
+        properties = { floating = true, ontop = false, focus = true, 
+        placement = awful.placement.centered }},
+
+        { rule = { class = "Gnome-screenshot" },
+        properties = { floating = true, ontop = false, focus = true, 
+        placement = awful.placement.centered }},
+
+        { rule = { name = "Joplin" },
+        properties = { floating = false, ontop = false,focus = false, 
+        tag =  screen[1].tags[4],
+        placement = awful.placement.centered }},
+
+        { rule = { instance = "lxappearance" },
+        properties = { floating = true, ontop = false, focus = true, 
+        placement = awful.placement.centered }},
+
+        { rule = { instance = "openrgb" },
+        properties = { floating = true, ontop = false, focus = true, 
+        placement = awful.placement.centered }},
+
+        { rule = { class = "rambox" },
+        properties = { floating = false, ontop = false,focus = true, 
+        tag =  screen[1].tags[3],
+        placement = awful.placement.centered }},
+
+        { rule = { name = "Spotify" },
+        properties = { floating = false, ontop = false,focus = false, 
+        tag =  screen[1].tags[4],
+        placement = awful.placement.centered }},
+
+        { rule = { instance = "Thunar" },
+        properties = { floating = true, ontop = false, focus = true, 
+        placement = awful.placement.centered }},
+
+        { rule = { name = "Thunderbird" },
+        properties = { floating = false, ontop = false,focus = false, 
+        tag =  screen[1].tags[3],
+        placement = awful.placement.centered }},
+
+        { rule = { instance = "virt-manager" },
+        properties = { floating = true, ontop = false, focus = true, 
+        placement = awful.placement.centered }},
+
+        { rule = { class = "xpad" },
+        properties = { floating = true, ontop = false, focus = false,
+        placement = awful.placement.centered,
+        tag =  screen[1].tags[1] },
+        callback = function(c) c:geometry({x=25, y=25}) end },
 
 
   -- Fenetre GlobalMenu add
