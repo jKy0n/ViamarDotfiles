@@ -669,93 +669,74 @@ awful.rules.rules = {
      }
     },
 
--- { rule = { class = "yakuake" },
---   properties = { floating = true, ontop = true, focus = true },
---   callback = function(c)
---       c:geometry({x=100, y=25})
---       free_focus = false
---       c:connect_signal("unmanage", function() free_focus = true end)
---   end },
-  
-  { rule = { class = "xpad" },
-    properties = { floating = true, ontop = false, focus = true,
-                    tag = screen[1].tags[1] },
-    callback = function(c)
-        c:geometry({x=25, y=25})
-        free_focus = false
-        c:connect_signal("unmanage", function() free_focus = true end)
-    end },
 
-  { rule = { name = "Code" },
-    properties = { floating = false, ontop = false, focus = true,
-                    tag = screen[1].tags[1],    },
-    callback = function(c)
-        free_focus = false
-        c:connect_signal("unmanage", function() free_focus = true end)
-    end },
-  
-    { rule = { name = "Thunderbird" },
-    properties = { floating = false, ontop = false, focus = true,
-                    tag = screen[1].tags[3],    },
-    callback = function(c)
-        free_focus = false
-        c:connect_signal("unmanage", function() free_focus = true end)
-    end },
-
-    { rule = { name = "Spotify" },
-    properties = { floating = false, ontop = false, focus = true,
-                    tag = screen[1].tags[4],    },
-    callback = function(c)
-        free_focus = false
-        c:connect_signal("unmanage", function() free_focus = true end)
-    end },
-
-    { rule = { name = "Joplin" },
-    properties = { floating = false, ontop = false, focus = true,
-                    tag = screen[1].tags[4],    },
-    callback = function(c)
-        free_focus = false
-        c:connect_signal("unmanage", function() free_focus = true end)
-    end },
-
+    ---------      My rules    ---------
+    
+    { rule = { class = "Code" },
+    properties = { floating = false, ontop = false,
+    tag =  screen[1].tags[1],
+    focus = false, placement = awful.placement.centered }},
+    
+    --  Try to make dialogs open floating at center
+    -- { rule = { name = "Visual Studio Code" },
+    -- properties = { floating = false, ontop = true,
+    -- focus = true, placement = awful.placement.centered }},
+    
+    
     { rule = { name = "Discord" },
-    properties = { floating = false, ontop = false, focus = true,
-                    tag = screen[1].tags[3],    },
-    callback = function(c)
-        free_focus = false
-        c:connect_signal("unmanage", function() free_focus = true end)
-    end },
-
-    { rule = { class = "rambox" },
     properties = { floating = false, ontop = false,
     tag =  screen[1].tags[3],
-    focus = true, placement = awful.placement.centered }},
-
-    { rule = { instance = "Thunar" },
-    properties = { floating = true, ontop = false, 
-    focus = true, placement = awful.placement.centered }},
-
-    { rule = { instance = "lxappearance" },
-    properties = { floating = true, ontop = false, 
-    focus = true, placement = awful.placement.centered }},
-
+    focus = false, placement = awful.placement.centered }},
+    
     { rule = { instance = "gnome-calculator" },
     properties = { floating = true, ontop = false, 
     focus = true, placement = awful.placement.centered }},
-
+    
     { rule = { class = "Gnome-screenshot" },
     properties = { floating = true, ontop = false, 
     focus = true, placement = awful.placement.centered }},
-
+    
+    { rule = { name = "Joplin" },
+    properties = { floating = false, ontop = false,
+    tag =  screen[1].tags[4],
+    focus = false, placement = awful.placement.centered }},
+    
+    { rule = { instance = "lxappearance" },
+    properties = { floating = true, ontop = false, 
+    focus = true, placement = awful.placement.centered }},
+    
     { rule = { instance = "openrgb" },
     properties = { floating = true, ontop = false, 
     focus = true, placement = awful.placement.centered }},
     
+    { rule = { class = "rambox" },
+    properties = { floating = false, ontop = false,
+    tag =  screen[1].tags[3],
+    focus = true, placement = awful.placement.centered }},
+    
+    { rule = { name = "Spotify" },
+    properties = { floating = false, ontop = false,
+    tag =  screen[1].tags[4],
+    focus = false, placement = awful.placement.centered }},
+    
+    { rule = { instance = "Thunar" },
+    properties = { floating = true, ontop = false, 
+    focus = true, placement = awful.placement.centered }},
+    
+    { rule = { name = "Thunderbird" },
+    properties = { floating = false, ontop = false,
+    tag =  screen[1].tags[3],
+    focus = false, placement = awful.placement.centered }},
+    
     { rule = { instance = "virt-manager" },
     properties = { floating = true, ontop = false, 
     focus = true, placement = awful.placement.centered }},
-
-
+    
+    { rule = { class = "xpad" },
+    properties = { floating = false, ontop = false, focus = false,
+    placement = awful.placement.centered,
+    tag =  screen[1].tags[1] },
+    callback = function(c) c:geometry({x=25, y=25}) end },
 
 
   -- Fenetre GlobalMenu add
@@ -795,17 +776,18 @@ awful.rules.rules = {
 
     -- Add titlebars to normal clients and dialogs
     { rule_any = {type = { "normal", "dialog" }
-      }, properties = { titlebars_enabled = true }
+      }, properties = { titlebars_enabled = true },
+      placement = awful.placement.centered
     },
 
 
-{
-    rule = { class = "Plasma-desktop" },
-    properties = { floating = true },
-    callback = function(c)
-        c:geometry( { width = 600 , height = 500 } )
-    end,
-},
+-- {
+--     rule = { class = "Plasma-desktop" },
+--     properties = { floating = true },
+--     callback = function(c)
+--         c:geometry( { width = 600 , height = 500 } )
+--     end,
+-- },
 
 
     -- Set Firefox to always map on the tag named "2" on screen 1.
