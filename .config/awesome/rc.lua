@@ -390,7 +390,7 @@ awful.screen.connect_for_each_screen(function(s)
             mytextclock,
 
             logout_menu_widget{
-                 font = 'sans 9',
+                 font = 'MesloLGS NF Bold 9',  -- 'sans 9'
                  onlogout   =  function() awesome.quit() end,
                  onlock     =  function() awful.spawn.with_shell('xscreensaver-command -lock') end,
                  onsuspend  =  function() awful.spawn.with_shell("loginctl suspend") end,
