@@ -884,10 +884,9 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 
 
 --- Add gaps
-beautiful.useless_gap = 2
 beautiful.notification_position = bottom_right    -- not working
 
-beautiful.systray_icon_spacing = 8
+-- beautiful.systray_icon_spacing = 8
 
 beautiful.tasklist_shape_urgent = gears.shape.rounded_rect
 beautiful.tasklist_shape_minimized = gears.shape.rounded_rect
