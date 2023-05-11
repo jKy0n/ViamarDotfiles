@@ -102,7 +102,7 @@ theme.titlebar_maximized_button_focus_active  = themes_path.."default/titlebar/m
 
 --  default: theme.wallpaper = themes_path.."default/background.png"
 --theme.wallpaper = themes_path.."/home/jkyon/Pictures/WallPapers/Andromeda.jpg"
-gears.wallpaper.centered("/home/jkyon/Pictures/WallPapers/Andromeda.jpg", s)
+gears.wallpaper.maximized("/home/jkyon/Pictures/WallPapers/WallpaperJohn.png", s)
 
 -- You can use your own layout icons like this:
 theme.layout_fairh = themes_path.."default/layouts/fairhw.png"
