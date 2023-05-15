@@ -826,7 +826,7 @@ shell:
 colors:
   # Default colors
   primary:
-    background: '#212D45'
+    background: '#0c3045'
     foreground: '#EBEBEB'
 
   # Cursor colors

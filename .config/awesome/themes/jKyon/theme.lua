@@ -15,10 +15,10 @@ local theme = {}
 
 theme.font          = "MesloLGS NF Bold 8.5"
 
-theme.bg_normal     = "#222F48"
-theme.bg_focus      = "#4B5B73"
+theme.bg_normal     = "#103c56"
+theme.bg_focus      = "#327dae"
 theme.bg_urgent     = "#ff0000"
-theme.bg_minimize   = "#2E3D55" 
+theme.bg_minimize   = "#000914" 
 theme.bg_systray    = theme.bg_normal
 
 theme.fg_normal     = "#aaaaaa"
