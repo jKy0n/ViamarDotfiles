@@ -15,6 +15,8 @@ local theme = {}
 
 theme.font          = "MesloLGS NF Bold 8.5"
 
+-- Colors reference: https://coolors.co/000914-0c3045-126590-327dae-3ca4d6
+
 theme.bg_normal     = "#103c56"
 theme.bg_focus      = "#327dae"
 theme.bg_urgent     = "#ff0000"
@@ -27,10 +29,10 @@ theme.fg_urgent     = "#ffffff"
 theme.fg_minimize   = "#ffffff"
 
 theme.useless_gap   = dpi(2)
-theme.border_width  = dpi(1)
-theme.border_normal = "#000000"
-theme.border_focus  = "#535d6c"
-theme.border_marked = "#91231c"
+theme.border_width  = dpi(2)
+theme.border_normal = "#103c56"
+theme.border_focus  = "#327dae"
+theme.border_marked = "#ff0000"
 
 
 -- There are other variable sets

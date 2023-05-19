@@ -28,6 +28,7 @@ local vicious = require("vicious")
 local lain = require("lain")
 local calendar_widget = require("awesome-wm-widgets.calendar-widget.calendar")
 local volume_widget = require('awesome-wm-widgets.volume-widget.volume')
+local todo_widget = require("awesome-wm-widgets.todo-widget.todo")
 local logout_menu_widget = require("awesome-wm-widgets.logout-menu-widget.logout-menu")
 
 local cpu_widget = require("awesome-wm-widgets.cpu-widget.cpu-widget")
@@ -383,6 +384,7 @@ awful.screen.connect_for_each_screen(function(s)
             tbox_separator,
             volume_widget({ widget_type = 'arc' , thickness = 2 }),
             tbox_separator_space,
+            todo_widget(),
             tbox_separator_space,
             wibox.widget.systray(),
             tbox_separator_space,
@@ -701,11 +703,20 @@ awful.rules.rules = {
         tag =  screen[1].tags[4],
         placement = awful.placement.centered }},
 
+        { rule = { class = "kdeconnect.app" },
+        properties = { floating = true, ontop = false, focus = false, 
+        tag =  screen[1].tags[2],
+        placement = awful.placement.centered }},
+
         { rule = { instance = "lxappearance" },
         properties = { floating = true, ontop = false, focus = true, 
         placement = awful.placement.centered }},
 
         { rule = { instance = "openrgb" },
+        properties = { floating = true, ontop = false, focus = true, 
+        placement = awful.placement.centered }},
+
+        { rule = { class = "PrismLauncher" },
         properties = { floating = true, ontop = false, focus = true, 
         placement = awful.placement.centered }},
 
@@ -842,30 +853,30 @@ client.connect_signal("request::titlebars", function(c)
 
 
 
-   --  awful.titlebar(c, { position = "bottom" }) : setup {
-   --       { -- Left
-   --       awful.titlebar.widget.closebutton    (c),
-   --       awful.titlebar.widget.floatingbutton (c),
-   --       awful.titlebar.widget.maximizedbutton(c),
-   --       --            awful.titlebar.widget.stickybutton   (c),
-   --       --            awful.titlebar.widget.ontopbutton    (c),
-   --       layout = wibox.layout.fixed.horizontal()
-   --       },
-   --       { -- Middle
-   --          { -- Title
-   --              align  = "center",
-   --              widget = awful.titlebar.widget.titlewidget(c)
-   --          },
-   --          buttons = buttons,
-   --          layout  = wibox.layout.flex.horizontal
-   --      },
-   --      { -- Right
-   --      awful.titlebar.widget.iconwidget(c),
-   --      buttons = buttons,
-   --      layout  = wibox.layout.fixed.horizontal
-   -- },
-   --      layout = wibox.layout.align.horizontal
-   --  }
+--     awful.titlebar(c, { position = "left" }) : setup {
+--          { -- Left
+--          awful.titlebar.widget.closebutton    (c),
+--          awful.titlebar.widget.floatingbutton (c),
+--          awful.titlebar.widget.maximizedbutton(c),
+--          --            awful.titlebar.widget.stickybutton   (c),
+--          --            awful.titlebar.widget.ontopbutton    (c),
+--          layout = wibox.layout.fixed.horizontal()
+--          },
+--          { -- Middle
+--             { -- Title
+--                 align  = "center",
+--                 widget = awful.titlebar.widget.titlewidget(c)
+--             },
+--             buttons = buttons,
+--             layout  = wibox.layout.flex.horizontal
+--         },
+--         { -- Right
+--         awful.titlebar.widget.iconwidget(c),
+--         buttons = buttons,
+--         layout  = wibox.layout.fixed.horizontal
+--    },
+--         layout = wibox.layout.align.horizontal
+--     }
 end)
 
 
