@@ -200,7 +200,49 @@ local mem = lain.widget.mem {
 }
 
 
-----------------------------------------------
+---------------------------------------------------------------------
+-------------------  Tags Manipulation Functions  -------------------
+
+local function add_tag()
+    awful.tag.add(" NewTag ", {
+        screen = awful.screen.focused(),
+        layout = awful.layout.suit.tile,
+        volatile = true
+    }):view_only()
+end 
+
+local function delete_tag()
+    local t = awful.screen.focused().selected_tag
+    if not t then return end
+    t:delete()
+end
+
+local function rename_tag()
+    awful.prompt.run {
+        prompt       = "New tag name: ",
+        textbox      = awful.screen.focused().mypromptbox.widget,
+        exe_callback = function(new_name)
+            if not new_name or #new_name == 0 then return end
+
+            local t = awful.screen.focused().selected_tag
+            if t then
+                t.name = new_name
+            end
+        end
+    }
+end
+
+local function move_to_new_tag()
+    local c = client.focus
+    if not c then return end
+
+    local t = awful.tag.add(c.class,{screen= c.screen, volatile = true })
+    c:tags({t})
+    t:view_only()
+end
+
+-------------------  Tags Manipulation Functions  -------------------
+---------------------------------------------------------------------
 
 
 -- Create a wibox for each screen and add it
@@ -291,11 +333,11 @@ screen.connect_signal("property::geometry", set_wallpaper)
         screen = s,
     })
 
-    awful.tag.add(" Free =) ", {
---        icon = "/home/jkyon/.dotfiles/.config/awesome/icons/bar-graph.png",
-        layout = awful.layout.suit.tile,
-        screen = s,
-    })
+--     awful.tag.add(" Free =) ", {
+-- --        icon = "/home/jkyon/.dotfiles/.config/awesome/icons/bar-graph.png",
+--         layout = awful.layout.suit.tile,
+--         screen = s,
+--     })
 
 
 awful.screen.connect_for_each_screen(function(s)
@@ -428,6 +470,21 @@ awful.key({}, "XF86AudioPrev", function () awful.util.spawn("dbus-send --print-r
 awful.key({}, "XF86AudioPlay", function () awful.util.spawn("dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause", false) end),
 awful.key({}, "XF86AudioStop", function () awful.util.spawn("dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Pause", false) end),
 
+
+------------------------------------------------------------------------
+---------------------  Tags Manipulation keybinds  ---------------------
+
+awful.key({ modkey,           }, "a", add_tag,
+{description = "add a tag", group = "tag"}),    
+awful.key({ modkey, "Shift"   }, "a", delete_tag,   
+{description = "delete the current tag", group = "tag"}),   
+awful.key({ modkey, "Shift"   }, "r", rename_tag,   
+{description = "rename the current tag", group = "tag"}),   
+awful.key({ modkey, "Control"   }, "a", move_to_new_tag,    
+{description = "add a tag with the focused client", group = "tag"}), 
+
+---------------------  Tags Manipulation keybinds  ---------------------
+------------------------------------------------------------------------
 
 
 
@@ -903,6 +960,7 @@ beautiful.tasklist_shape_urgent = gears.shape.rounded_rect
 beautiful.tasklist_shape_minimized = gears.shape.rounded_rect
 beautiful.tasklist_shape_bg = gears.shape.rounded_rect
 beautiful.tasklist_shape_focus = gears.shape.rounded_rect
+
 beautiful.taglist_shape_urgent = gears.shape.rounded_rect
 beautiful.taglist_shape_bg = gears.shape.rounded_rect
 beautiful.taglist_shape_focus = gears.shape.rounded_rect
