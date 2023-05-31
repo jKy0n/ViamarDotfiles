@@ -181,7 +181,7 @@ mytextclock:connect_signal("button::press",
 ----------------------------------------------
 
 tbox_separator_dash = wibox.widget.textbox (" - ")
-tbox_separator = wibox.widget.textbox (" | ")
+tbox_separator_pipe = wibox.widget.textbox (" | ")
 tbox_separator_space = wibox.widget.textbox (" ")
 tbox_separator_temp = wibox.widget.textbox ("Temp:")
 tbox_separator_Celsius = wibox.widget.textbox ("ºC")
@@ -236,7 +236,7 @@ local function move_to_new_tag()
     local c = client.focus
     if not c then return end
 
-    local t = awful.tag.add(c.class,{screen= c.screen, volatile = true })
+    local t = awful.tag.add(c.class,{screen= c.screen, layout = awful.layout.suit.tile, volatile = true })
     c:tags({t})
     t:view_only()
 end
@@ -407,23 +407,26 @@ awful.screen.connect_for_each_screen(function(s)
             tbox_separator_space,
             wibox.widget.textbox('  '),
             awful.widget.watch('bash -c "sh /home/jkyon/ShellScript/dwmBlocksUpdates"', 7200),
-            tbox_separator,
+            tbox_separator_pipe,
             wibox.widget.textbox('  '),
             cpu.widget,
+            tbox_separator_dash,
+            awful.widget.watch('bash -c "sh /home/jkyon/ShellScript/dwmBlocksNice"', 2),
+            tbox_separator_dash,
             wibox.widget.textbox('  '),
             awful.widget.watch('bash -c "sh /home/jkyon/ShellScript/dwmBlocksCpuTemp"', 2),            
-            tbox_separator,
+            tbox_separator_pipe,
             tbox_separator_space,
             cpu_widget(),
             tbox_separator_space,
-            -- tbox_separator,
+            -- tbox_separator_pipe,
             -- tempwidget,
-            tbox_separator,
+            tbox_separator_pipe,
             wibox.widget.textbox('  '),
             mem.widget,
             tbox_separator_space,
             ram_widget({ color_used = '#2E3D55', color_buf = '#4B5B73' }),
-            tbox_separator,
+            tbox_separator_pipe,
             volume_widget({ widget_type = 'arc' , thickness = 2 }),
             tbox_separator_space,
             todo_widget(),
